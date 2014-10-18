@@ -1,0 +1,73 @@
+Camoto: Classic-game Modding Tools
+Copyright 2010-2013 Adam Nielsen <malvineous@shikadi.net>
+http://www.shikadi.net/camoto/
+
+Camoto is a collection of utilities for editing (modding) "classic games",
+those from the early to mid 1990s running under DOS.
+
+This is libgamemusic, one component of the Camoto suite.  libgamemusic is a
+library that can read and write many different music file formats, with a focus
+on formats used by DOS games.
+
+The library exposes each file format as a long list of "events", such as
+note-on, tempo change, pitch bend, and so on.  This event list can then be
+manipulated if required, and then written out to a music file in the same or
+another format.
+
+An instrument list is also provided, which allows manipulation of each
+instrument used in the song.  Current instrument types are General MIDI (patch
+numbers), OPL register values (used by Adlib songs) and sampled instruments
+(as used by mod/tracker formats.)
+
+File formats from the following games are supported:
+
+  * Bio Menace (.imf)
+  * Blake Stone (.wlf)
+  * Commander Keen (.imf)
+  * Cosmo's Cosmic Adventures (.imf)
+  * Drum Blaster (early .cmf)
+  * Duke Nukem II (.imf)
+  * God of Thunder (song*, *song)
+  * Jill of the Jungle (.cmf)
+  * Kiloblaster (.cmf)
+  * Major Stryker (.wlf)
+  * Math Rescue (.cmf)
+  * Monster Bash (.imf)
+  * Operation Body Count (.wlf)
+  * Scud Atak (.cmf)
+  * Solar Winds (.cmf)
+  * Traffic Department 2192 (.cmf)
+  * Wacky Wheels (.klm) [partial]
+  * Wolfenstein 3-D (.wlf)
+  * Word Rescue (.cmf) [partial]
+  * Xargon (.cmf)
+  * Zone 66 CDFM (.670)
+
+These auxiliary file formats have also been implemented:
+
+  * DOSBox raw OPL (.dro, v1 and v2)
+  * Instrument Bank (.ibk)
+  * Type-0/single-track MIDI (.mid)
+  * RDOS raw OPL (.raw)
+
+Many more formats are planned.
+
+The library is compiled and installed in the usual way:
+
+  ./configure && make
+  sudo make install
+  sudo ldconfig
+
+You will need libgamecommon installed first.  If you downloaded the git
+release, run ./autogen.sh before the commands above.  You can also run
+"make check" to compile and run the tests.
+
+This distribution includes an example program "gamemus" which serves as both
+a command-line interface to the library as well as an example of how to use
+the library.  This program is installed as part of the "make install" process.
+See "man gamemus" for full details.
+
+All supported music file formats are fully documented on the ModdingWiki - see
+http://www.shikadi.net/moddingwiki/
+
+This library is released under the GPLv3 license.
