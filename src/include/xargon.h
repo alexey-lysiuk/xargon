@@ -219,7 +219,7 @@ void moveobj (int n, int newx, int newy);
 int trymovey (int n, int newx, int newy);
 int crawl (int n, int dx, int dy);
 
-int playerxfm (int n);
+void playerxfm (int n);
 int trybreakwall (int n, int x, int y);
 void explode1 (int x, int y, int n, int flg);
 void explode2 (int n);

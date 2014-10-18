@@ -33,7 +33,7 @@ void init_info (void) {
 		read (blockfile,&temp,2);
 		info[c].flags^=temp;
 		read (blockfile,&len,1);
-		info [c].na=malloc (len+1);
+		info [c].na=(char*)malloc (len+1);
 		read (blockfile,info[c].na,len);
 		info[c].na[len]=0;
 		};

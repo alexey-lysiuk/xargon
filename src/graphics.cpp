@@ -31,7 +31,7 @@ int origmode;
 int pagemode, pageshow, pagedraw;
 int showofs, drawofs, pagelen;
 
-void *LOST;
+char *LOST;
 
 extern void plot_cga (int x, int y, byte color);
 extern void plot_ega (int x, int y, byte color);
@@ -123,7 +123,7 @@ void pixaddr_ega (int x,int y,char **vidbuf,unsigned char *bitc) {
 };
 
 void pixaddr_vga (int x,int y,char **vidbuf,unsigned char *bitc) {
-	*vidbuf=(void*) (0xa0000000+drawofs+(80*y)+(x>>2));
+	*vidbuf=(char*) (0xa0000000+drawofs+(80*y)+(x>>2));
 	*bitc=(x&3);
 	};
 
@@ -394,7 +394,7 @@ void gr_init (void) {
 	clrvp (&mainvp,0);
 	vga_setpal();
 
-	LOST=malloc (1);
+	LOST=(char*)malloc (1);
 	};
 
 void gr_exit (void) {

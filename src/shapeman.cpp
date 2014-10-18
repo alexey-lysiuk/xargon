@@ -92,7 +92,7 @@ void xlate_table (int n, char *addr, char *bucket1) {
 			};
 		};
 
-	dest=malloc (len);
+	dest=(char*)malloc (len);
 	if (dest==NULL) rexit (9);
 	shm_tbllen[n]=len;
 	shm_tbladdr[n]=dest;
@@ -153,7 +153,7 @@ void shm_do (void) {
 	int c;
 	char*bucket1;
  
-	bucket1=malloc (4096);
+	bucket1=(char*)malloc (4096);
 	if (bucket1==NULL) rexit (9);
 	
 	for (c=0; c<shm_maxtbls; c++) {
@@ -178,7 +178,7 @@ void shm_do (void) {
 		else if ((shm_tbladdr[c]==NULL)&&(shlen[c]!=0)) {
 	// Shape file 'c' is needed, but not loaded, so load it.
 			lseek (shafile, shoffset [c], SEEK_SET);	// Seek to position in file
-			shaddr[c]=malloc (shlen[c]);					// Allocate mem to hold it
+			shaddr[c]=(char*)malloc (shlen[c]);					// Allocate mem to hold it
 			if (shaddr[c]==NULL) rexit (9);
 			read (shafile, shaddr[c], shlen[c]);		// Read it in
 			};

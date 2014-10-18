@@ -277,7 +277,7 @@ void playmac (char *fname) {
 	machand=_open(fname,O_BINARY);
 	if (machand>=0) {
 		maclen=filelength (machand);
-		macptr=malloc (maclen);
+		macptr=(char*)malloc (maclen);
 		if (macptr==NULL) macptr=NULL;
 		else if (_read (machand,macptr,maclen)>=0) {
 			macplay=1;
@@ -292,7 +292,7 @@ void playmac (char *fname) {
 
 void recordmac (char *fname) {
 	stopmac();
-	macptr=malloc (8000);
+	macptr=(char*)malloc (8000);
 	if (macptr!=NULL) {
 		macofs=0;
 		macrecord=1;

@@ -331,7 +331,7 @@ void loadboard (char *fname) {
 	for (c=0; c<numobjs; c++) {
 		if (objs[c].inside_val != 0) {
 			read (boardfile,&tempint,sizeof(tempint));
-			objs[c].inside=malloc(tempint+1);
+			objs[c].inside=(char*)malloc(tempint+1);
 			objs[c].inside_val = 1;
 			read (boardfile,objs[c].inside,tempint+1);
 			}

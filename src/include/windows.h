@@ -17,7 +17,7 @@ typedef struct {
 extern void defwin (wintype *win,int x8,int y,int xl16,int yl16,int h16,int v16,int flags);
 extern void undrawwin (wintype *win);
 extern void drawwin (wintype *win);
-extern void wprint (vptype *vp,int x,int y,int font,char *text);
+extern void wprint (vptype *vp,int x,int y,int font,const char *text);
 extern int wgetkey (vptype *vp,int x,int y,int font);
 extern void wprintc (vptype *vp,int y,int font,char *text);
 extern void winput (vptype *vp,int x,int y,int font,char *text,int maxlen);

@@ -146,7 +146,7 @@ int objdesign (int dx, int dy) {				// Returns 1 if need redraw
 		winput (&gamevp,objs[objnum].x,objs[objnum].y,fontnum,tempstr, 64);
 
 		if (objs[objnum].inside!=NULL) free (objs[objnum].inside);
-		objs[objnum].inside=malloc (strlen(tempstr)+1);
+		objs[objnum].inside=(char*)malloc (strlen(tempstr)+1);
 		strcpy (objs[objnum].inside, tempstr);
 		setobjsize (objnum);
 		};

@@ -137,7 +137,7 @@ void undrawwin (wintype *win) {
 	clearvp (&(win->border));
 	};
 
-void wprint (vptype *vp, int x, int y, int font, char *text) {
+void wprint (vptype *vp, int x, int y, int font, const char *text) {
 	int fontx;
 	int c;
 

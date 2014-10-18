@@ -384,7 +384,7 @@ void lcopypage(void)
 	return;
 }
 
-void uncrunch (char *sourceptr, char *destptr, int length)
+void uncrunch (unsigned char *sourceptr, char *destptr, int length)
 {
 	// TODO
 	if (destptr == (char *)0xb8000000) {

@@ -569,7 +569,7 @@ int msg_herobee (int n, int msg, int z) {
 		}; return (0);
 	};
 
-int playerxfm (int xfmto) {
+void playerxfm (int xfmto) {
 	int c=0;
 	int newobj=obj_player;
 	int oldobj,oldxl,oldyl;

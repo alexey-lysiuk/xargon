@@ -65,7 +65,7 @@ void interrupt (*worxint8)(void)=NULL;
 
 void interrupt spkr_intr (void);
 
-const char vochdr[0x20]={
+const unsigned char vochdr[0x20]={
 	0x43,0x72,0x65,0x61,0x74,0x69,0x76,0x65,
 	0x20,0x56,0x6f,0x69,0x63,0x65,0x20,0x46,
 	0x69,0x6c,0x65,0x1a,0x1a,0x00,0x0a,0x01,
@@ -197,22 +197,22 @@ void snd_do (void) {
 			SetMasterVolume (0xf,0xf);
 			};
 		};
-	if (vocflag) memvoc=malloc (maxvoclen*memvocs);
+	if (vocflag) memvoc=(char*)malloc (maxvoclen*memvocs);
 	else {
 		memvoc=NULL;
-		freq=malloc (maxsndlen*2+128);
-		dur=malloc (maxsndlen*2+128);
+		freq=(int*)malloc (maxsndlen*2+128);
+		dur=(int*)malloc (maxsndlen*2+128);
 		lseek (vocfilehandle,headersize,SEEK_SET);
 		for (c=0; c<num_macs; c++) {
 			read (vocfilehandle,&j,2);
 			if (j!=0) {
-				soundmac[c]=malloc(j);
+				soundmac[c]=(char*)malloc(j);
 				if (!soundmac[c]) rexit (154);
 				read (vocfilehandle,soundmac[c],j);
 				}
 			else soundmac[c]=NULL;
 			};
-		SOUNDS=malloc (10480);
+		SOUNDS=(int*)malloc (10480);
 		soundhandle=_open ("audio.epc",O_BINARY|O_RDONLY);
 		if (soundhandle==-1) rexit (155);
 		_read (soundhandle,SOUNDS,10400);
@@ -236,7 +236,7 @@ void text_get (int n) {
 
 	if (textlen[n]!=0) {
 		textmsglen=textlen[n];
-		textmsg=malloc(textmsglen);
+		textmsg=(char*)malloc(textmsglen);
 		if (textmsg!=NULL) {
 			lseek (vocfilehandle,textposn[n],SEEK_SET);
 			if (read (vocfilehandle,textmsg,textmsglen)==-1) textmsg=NULL;
