@@ -1,0 +1,17 @@
+library_includedir = $(includedir)/@camoto_release@/camoto/
+nobase_library_include_HEADERS = bitstream.hpp
+nobase_library_include_HEADERS += byteorder.hpp
+nobase_library_include_HEADERS += debug.hpp
+nobase_library_include_HEADERS += error.hpp
+nobase_library_include_HEADERS += filter.hpp
+nobase_library_include_HEADERS += iostream_helpers.hpp
+nobase_library_include_HEADERS += lzw.hpp
+nobase_library_include_HEADERS += metadata.hpp
+nobase_library_include_HEADERS += stream.hpp
+nobase_library_include_HEADERS += stream_file.hpp
+nobase_library_include_HEADERS += stream_filtered.hpp
+nobase_library_include_HEADERS += stream_seg.hpp
+nobase_library_include_HEADERS += stream_string.hpp
+nobase_library_include_HEADERS += stream_sub.hpp
+nobase_library_include_HEADERS += suppitem.hpp
+nobase_library_include_HEADERS += util.hpp

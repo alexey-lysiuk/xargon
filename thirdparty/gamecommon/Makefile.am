@@ -1,0 +1,15 @@
+# "src" must go first so the library is available when the tests compile
+SUBDIRS = src include tests
+
+EXTRA_DIST = @PACKAGE@.pc.in README
+
+DISTCLEANFILES = @PACKAGE@.pc
+
+# Location of boost.m4
+ACLOCAL_AMFLAGS = -I m4
+
+srcdir = @srcdir@
+VPATH = @srcdir@
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = @PACKAGE@.pc
